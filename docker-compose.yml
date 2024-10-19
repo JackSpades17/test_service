@@ -1,1 +1,9 @@
-docker.io/library/
+version: "2.3.0"
+services:
+  test_service:
+    image: test_zone
+    container_name: test
+    ports:
+    - 8080:1717
+    volumes:
+    - "$HOME/test_service:/opt/app"
