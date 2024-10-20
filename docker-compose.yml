@@ -1,4 +1,4 @@
-version: "2.3.0"
+version: "2.2"
 services:
   test_service:
     image: test_zone
@@ -7,4 +7,3 @@ services:
     - 8080:1717
     volumes:
     - "/home/jackspades17/test_service:/opt/app"
-    #- "$HOME/test_service:/opt/app"
