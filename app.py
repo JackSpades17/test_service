@@ -1,6 +1,5 @@
 from flask import Flask
 import psycopg2
-import argv
 
 app = Flask(__name__)
 
