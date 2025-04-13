@@ -1,5 +1,5 @@
 from flask import Flask
-import psycopg2
+import psycopg2, argv
 
 app = Flask(__name__)
 
@@ -19,7 +19,7 @@ def hello_world():
 
 @app.route('/info')
 def get_price():
-    with psycopg2.connect(host = "127.0.0.1", port = "5432", user="admin", database="test_zone") as conn:
+    with psycopg2.connect('postgresql://admin:1111@postgres-clusterip-test-service:5432/test_zone') as conn:
         cur = conn.cursor()
         cur.execute('''select * from info_girl;''')
         sets = cur.fetchone()
