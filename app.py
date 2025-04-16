@@ -1,8 +1,9 @@
+from sys import argv
 from flask import Flask
 import psycopg2
 
 app = Flask(__name__)
-
+_, pgrsurl = argv 
 @app.route('/')
 def hello_world():
     return '<h1>Hello, Nastya is a LOVA GIRL!!!</h1>'
@@ -19,7 +20,8 @@ def hello_world():
 
 @app.route('/info')
 def get_price():
-    with psycopg2.connect('postgresql://admin:1111@postgres-clusterip-test-service:5432/test_zone') as conn:
+    #with psycopg2.connect('postgresql://admin:1111@postgres-clusterip-test-service:5432/test_zone') as conn:
+    with psycopg2.connect(pgrsurl) as conn:
         cur = conn.cursor()
         cur.execute('''select * from info_girl;''')
         sets = cur.fetchone()
