@@ -8,6 +8,10 @@ _, pgrsurl = argv
 def hello_world():
     return '<h1>Hello, Nastya is a LOVA GIRL!!!</h1>'
 
+@app.route('/healthcheck')
+def healthcheck():
+    return 'OK'
+
 # def connect_to_db():
 #     conn = psycopg2.connect (
 #         #database = "postgres",
