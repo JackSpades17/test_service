@@ -1,12 +1,18 @@
 from sys import argv
-from flask import Flask
+from flask import Flask, render_template
 import psycopg2
+import subprocess
 
 app = Flask(__name__)
-_, pgrsurl = argv 
+_, pgrsurl = argv
+
+def get_hostname():
+    return subprocess.run('hostname',capture_output=True, text=True).stdout
+
 @app.route('/')
 def hello_world():
-    return '<h1>Hello, Nastya is a LOVA GIRL!!!</h1>'
+    node = get_hostname()
+    return render_template('index.html', node = node)
 
 @app.route('/healthcheck')
 def healthcheck():
