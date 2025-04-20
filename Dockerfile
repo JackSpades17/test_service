@@ -1,5 +1,5 @@
 FROM python:3
-ARG DATABASE_URL
+#ARG DATABASE_URL
 WORKDIR /opt/app
 COPY . .
 #COPY templates requirements.txt app.py .

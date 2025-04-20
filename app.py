@@ -18,6 +18,10 @@ def hello_world():
 def healthcheck():
     return 'OK'
 
+@app.route('/get_url_pg')
+def get_url_pg():
+    return pgrsurl
+
 # def connect_to_db():
 #     conn = psycopg2.connect (
 #         #database = "postgres",
@@ -38,17 +42,6 @@ def get_price():
     print(sets)
 
     return f'<h1>Age:{sets[0]}</h1>'
-
-# @app.route('/update')
-# def update_price():
-#     cur.execute('''select * from count_update order by count desc;''')
-#     sets = cur.fetchone()
-#     new_item = int(sets[0]) + 1
-#     cur.execute(f'''insert into count_update values('{new_item}');''')
-#     con.commit()
-#     cur.execute('''select * from count_update order by count desc;''')
-#     sets = cur.fetchone()
-#     return f'<h1>Congratulations!Обновлено! BIG is {sets[0]}!</h1>'
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',port=1717)
